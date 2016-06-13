@@ -1,18 +1,18 @@
 ﻿using System.Transactions;
 
 namespace Transactions {
-  public class RealTransactionScope : ITransactionScope {
+  public class RealTransactionScope : TransactionScope {
     readonly System.Transactions.TransactionScope _inner;
 
     internal RealTransactionScope(TransactionScopeOption scopeOption, TransactionOptions transactionOptions, TransactionScopeAsyncFlowOption asyncFlowOption) {
       _inner = new System.Transactions.TransactionScope(scopeOption, transactionOptions, asyncFlowOption);
     }
 
-    public void Dispose() {
+    protected override void UnwindScope() {
       _inner.Dispose();
     }
 
-    public void Complete() {
+    public override void Complete() {
       _inner.Complete();
     }
   }

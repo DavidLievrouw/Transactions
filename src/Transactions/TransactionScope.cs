@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+
+namespace Transactions {
+  public abstract class TransactionScope : ITransactionScope {
+    static readonly Stack<ITransactionScope> ScopeStack = new Stack<ITransactionScope>();
+    
+    public static ITransactionScope Current => ScopeStack.Count == 0
+      ? null
+      : ScopeStack.Peek();
+
+    protected TransactionScope() {
+      ScopeStack.Push(this);
+    }
+
+    public void Dispose() {
+      if (ShouldUnwindScope()) UnwindScope();
+      ScopeStack.Pop();
+    }
+
+    protected virtual bool ShouldUnwindScope() {
+      return true;
+    }
+
+    protected abstract void UnwindScope();
+    public abstract void Complete();
+  }
+}
