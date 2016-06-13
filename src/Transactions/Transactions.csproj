@@ -44,8 +44,10 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ITransactionManager.cs" />
+    <Compile Include="ITransactionScopeFactory.cs" />
     <Compile Include="ITransactionScope.cs" />
+    <Compile Include="RealTransactionScope.cs" />
+    <Compile Include="RealTransactionScopeFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

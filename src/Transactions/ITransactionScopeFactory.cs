@@ -1,7 +1,7 @@
 ﻿using System.Transactions;
 
 namespace Transactions {
-  public interface ITransactionManager {
+  public interface ITransactionScopeFactory {
     ITransactionScope CreateScope();
     ITransactionScope CreateScope(TransactionScopeOption scopeOption);
     ITransactionScope CreateScope(TransactionScopeOption scopeOption, TransactionScopeAsyncFlowOption asyncFlowOption);
