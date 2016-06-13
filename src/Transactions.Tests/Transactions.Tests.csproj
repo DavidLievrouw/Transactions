@@ -72,6 +72,8 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="TransactionScopeForTest.cs" />
+    <Compile Include="TransactionScopeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

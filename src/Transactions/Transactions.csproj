@@ -44,6 +44,9 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\InternalsVisibleTo.cs">
+      <Link>Properties\InternalsVisibleTo.cs</Link>
+    </Compile>
     <Compile Include="ITransactionScopeFactory.cs" />
     <Compile Include="ITransactionScope.cs" />
     <Compile Include="RealTransactionScope.cs" />
