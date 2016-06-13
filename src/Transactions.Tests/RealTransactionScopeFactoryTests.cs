@@ -1,7 +1,7 @@
 ﻿using System.Transactions;
 using NUnit.Framework;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   [TestFixture]
   public class RealTransactionScopeFactoryTests {
     ITransactionScope _scope;

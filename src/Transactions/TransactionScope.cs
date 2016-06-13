@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   public abstract class TransactionScope : ITransactionScope {
     static readonly Stack<ITransactionScope> ScopeStack = new Stack<ITransactionScope>();
     

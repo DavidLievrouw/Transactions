@@ -1,4 +1,4 @@
-﻿namespace Transactions {
+﻿namespace DavidLievrouw.Transactions {
   public class TransactionScopeForTest : TransactionScope {
     public TransactionScopeForTest() {
       IsUnwound = false;

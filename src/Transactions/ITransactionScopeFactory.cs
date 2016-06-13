@@ -1,6 +1,6 @@
 ﻿using System.Transactions;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   public interface ITransactionScopeFactory {
     ITransactionScope CreateScope();
     ITransactionScope CreateScope(TransactionScopeOption scopeOption);

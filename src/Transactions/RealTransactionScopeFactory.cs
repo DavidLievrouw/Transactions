@@ -1,6 +1,6 @@
 ﻿using System.Transactions;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   public class RealTransactionScopeFactory : ITransactionScopeFactory {
     public ITransactionScope CreateScope() {
       return CreateScope(TransactionScopeOption.Required, new TransactionOptions(), TransactionScopeAsyncFlowOption.Suppress);

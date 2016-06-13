@@ -1,6 +1,6 @@
 ﻿using System.Transactions;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   public class RealTransactionScope : TransactionScope {
     readonly System.Transactions.TransactionScope _inner;
 

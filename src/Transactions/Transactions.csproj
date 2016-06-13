@@ -7,8 +7,8 @@
     <ProjectGuid>{5A190072-DA13-49AC-831F-948371B70161}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Transactions</RootNamespace>
-    <AssemblyName>Transactions</AssemblyName>
+    <RootNamespace>DavidLievrouw.Transactions</RootNamespace>
+    <AssemblyName>DLTransactions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

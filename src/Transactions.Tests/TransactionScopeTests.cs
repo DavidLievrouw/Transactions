@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Transactions {
+namespace DavidLievrouw.Transactions {
   [TestFixture]
   public class TransactionScopeTests {
     [Test]
