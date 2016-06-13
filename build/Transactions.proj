@@ -5,6 +5,7 @@
     <RestorePackagesScriptDirectory>$(RootPath)\build</RestorePackagesScriptDirectory>
     <BuildScriptDirectory>$(RootPath)\build</BuildScriptDirectory>
     <DeployScriptDirectory>$(RootPath)\build</DeployScriptDirectory>
+    <NugetScriptDirectory>$(RootPath)\build</NugetScriptDirectory>
     <TestScriptDirectory>$(RootPath)\build</TestScriptDirectory>
   </PropertyGroup>
   
@@ -24,6 +25,26 @@
 			 Targets="Deploy"
 			 BuildInParallel="false"/>
   </Target>
+  <Target Name="PackNuGet">
+    <MSBuild Projects="$(RestorePackagesScriptDirectory)\restorepackages.proj;"
+			 StopOnFirstFailure="true"
+			 Targets="RestoreCorePackagesOnly"
+			 BuildInParallel="false"/>
+    <MSBuild Projects="$(NugetScriptDirectory)\nuget.proj;"
+			 StopOnFirstFailure="true"
+			 Targets="Pack"
+			 BuildInParallel="false"/>
+  </Target>
+  <Target Name="PushNuGet">
+    <MSBuild Projects="$(RestorePackagesScriptDirectory)\restorepackages.proj;"
+			 StopOnFirstFailure="true"
+			 Targets="RestoreCorePackagesOnly"
+			 BuildInParallel="false"/>
+    <MSBuild Projects="$(NugetScriptDirectory)\nuget.proj;"
+			 StopOnFirstFailure="true"
+			 Targets="Push"
+			 BuildInParallel="false"/>
+  </Target>
   <Target Name="UnitTest">
     <MSBuild Projects="$(RestorePackagesScriptDirectory)\restorepackages.proj;"
 			 StopOnFirstFailure="true"
@@ -38,5 +59,10 @@
   <Target Name="BuildDeploy">
     <CallTarget Targets="Build" />
     <CallTarget Targets="Deploy" />
+  </Target>
+  <Target Name="BuildDeployPackNuGet">
+    <CallTarget Targets="Build" />
+    <CallTarget Targets="Deploy" />
+    <CallTarget Targets="PackNuGet" />
   </Target>
 </Project>

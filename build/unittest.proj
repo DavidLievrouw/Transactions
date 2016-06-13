@@ -35,7 +35,7 @@
   </Target>
   
   <Target Name="UnitTestNET" DependsOnTargets="Build">
-    <CreateItem Include="$(BuildOutputDirectory)\Transactions.Tests.dll;">
+    <CreateItem Include="$(BuildOutputDirectory)\DLTransactions.Tests.dll;">
       <Output TaskParameter="Include" ItemName="NUnitTestAssemblies" />
     </CreateItem>
     
