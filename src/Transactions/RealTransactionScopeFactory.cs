@@ -2,16 +2,21 @@
 
 namespace DavidLievrouw.Transactions {
   public class RealTransactionScopeFactory : ITransactionScopeFactory {
+    static readonly TransactionOptions DefaultTransactionOptions = new TransactionOptions {
+      IsolationLevel = IsolationLevel.ReadCommitted,
+      Timeout = TransactionManager.DefaultTimeout
+    };
+
     public ITransactionScope CreateScope() {
-      return CreateScope(TransactionScopeOption.Required, new TransactionOptions(), TransactionScopeAsyncFlowOption.Suppress);
+      return CreateScope(TransactionScopeOption.Required, DefaultTransactionOptions, TransactionScopeAsyncFlowOption.Suppress);
     }
 
     public ITransactionScope CreateScope(TransactionScopeOption scopeOption) {
-      return CreateScope(scopeOption, new TransactionOptions(), TransactionScopeAsyncFlowOption.Suppress);
+      return CreateScope(scopeOption, DefaultTransactionOptions, TransactionScopeAsyncFlowOption.Suppress);
     }
 
     public ITransactionScope CreateScope(TransactionScopeOption scopeOption, TransactionScopeAsyncFlowOption asyncFlowOption) {
-      return CreateScope(scopeOption, new TransactionOptions(), asyncFlowOption);
+      return CreateScope(scopeOption, DefaultTransactionOptions, asyncFlowOption);
     }
 
     public ITransactionScope CreateScope(TransactionScopeOption scopeOption, TransactionOptions transactionOptions) {
