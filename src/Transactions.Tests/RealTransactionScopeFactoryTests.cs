@@ -38,6 +38,37 @@ namespace DavidLievrouw.Transactions {
       Assert.That(_scope, Is.InstanceOf<ITransactionScope>());
     }
 
+
+    [Test]
+    public void Create_ProducesTransactionScope_WithCorrectDefaults() {
+      _scope = _sut.CreateScope();
+      Assert.That(_scope, Is.Not.Null);
+      Assert.That(_scope, Is.InstanceOf<RealTransactionScope>());
+      var typedScope = (RealTransactionScope)_scope;
+      Assert.That(typedScope.TransactionOptions.IsolationLevel, Is.EqualTo(IsolationLevel.ReadCommitted));
+      Assert.That(typedScope.TransactionOptions.Timeout, Is.EqualTo(TransactionManager.DefaultTimeout));
+    }
+
+    [Test]
+    public void CreateWithOption_ProducesTransactionScope_WithCorrectDefaults() {
+      _scope = _sut.CreateScope(TransactionScopeOption.Required);
+      Assert.That(_scope, Is.Not.Null);
+      Assert.That(_scope, Is.InstanceOf<RealTransactionScope>());
+      var typedScope = (RealTransactionScope)_scope;
+      Assert.That(typedScope.TransactionOptions.IsolationLevel, Is.EqualTo(IsolationLevel.ReadCommitted));
+      Assert.That(typedScope.TransactionOptions.Timeout, Is.EqualTo(TransactionManager.DefaultTimeout));
+    }
+
+    [Test]
+    public void CreateWithOptionAndAsyncFlow_ProducesTransactionScope_WithCorrectDefaults() {
+      _scope = _sut.CreateScope(TransactionScopeOption.Required, TransactionScopeAsyncFlowOption.Enabled);
+      Assert.That(_scope, Is.Not.Null);
+      Assert.That(_scope, Is.InstanceOf<RealTransactionScope>());
+      var typedScope = (RealTransactionScope)_scope;
+      Assert.That(typedScope.TransactionOptions.IsolationLevel, Is.EqualTo(IsolationLevel.ReadCommitted));
+      Assert.That(typedScope.TransactionOptions.Timeout, Is.EqualTo(TransactionManager.DefaultTimeout));
+    }
+
     [Test]
     public void CreateWithOptionAndTranOptions_ProducesTransactionScope() {
       _scope = _sut.CreateScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable });
