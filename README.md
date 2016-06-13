@@ -51,5 +51,5 @@ This is a library that provides a simple abstraction on top of System.Transactio
 
 ## Change log
 
-v1.0.0 - 2016-06-13
+v1.0.1 - 2016-06-13
 - Initial release.
