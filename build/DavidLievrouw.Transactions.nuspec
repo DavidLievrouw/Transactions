@@ -2,9 +2,13 @@
 <package xmlns:ns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>DavidLievrouw.Transactions</id>
-    <version>1.0.0-beta</version>
+    <version>1.0.0</version>
     <authors>David Lievrouw</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <title>DavidLievrouw.Transactions</title>
+    <projectUrl>https://github.com/DavidLievrouw/Transactions</projectUrl>
+    <summary>Library that facilitates abstraction of the System.Transactions namespace.</summary>
+    <copyright>Copyright (c) 2016 David Lievrouw</copyright>
     <description>Library that facilitates abstraction of the System.Transactions namespace.</description>
     <dependencies />
   </metadata>
