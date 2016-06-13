@@ -8,6 +8,8 @@ namespace Transactions {
       ? null
       : ScopeStack.Peek();
 
+    public static int Depth => ScopeStack.Count;
+
     protected TransactionScope() {
       ScopeStack.Push(this);
     }
