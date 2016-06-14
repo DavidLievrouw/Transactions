@@ -49,6 +49,9 @@ This is a library that provides a simple abstraction on top of System.Transactio
   }
 ```
 
+## NuGet
+Url: https://www.nuget.org/packages/DavidLievrouw.Transactions/
+
 ## Change log
 
 v1.0.1 - 2016-06-13
